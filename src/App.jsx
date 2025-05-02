@@ -26,13 +26,23 @@ const App = () => {
   useEffect(()=>{
     handleRefresh();
   },[]);
+  const handelReset=()=>{
+    let resetCount=0;
+    localStorage.setItem('count',JSON.stringify(resetCount));
+    setCount(resetCount);
+
+  }
   return (
     <>
     <div className="container text-center mt-5">
       <h1>Counter</h1>
       <button className="btn  me-3" onClick={handleDecrement}>-</button>
       <span className="fs-3">{count}</span>
+      
       <button className="btn  ms-3" onClick={handleIncrement}>+</button>
+      <br/>
+      <button className='btn ' onClick={handelReset}>Reset</button>
+      
     </div>
     </>
   )
